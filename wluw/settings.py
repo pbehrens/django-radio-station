@@ -15,13 +15,15 @@ LANGUAGE_CODE = 'en-us'
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
 TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.auth",
+    #"django.core.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "radio.station.context_processors.google_analytics",
     "radio.station.context_processors.current_datetime",
+    "radio.frontend.context_processors.today",
+	"django.contrib.auth.context_processors.auth",
 )
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -32,7 +34,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/admin_media/'
+STATIC_URL = '/admin_media/'
 
 # Don't share this with anybody.
 SECRET_KEY = 'y3cpni&%g-v-)qge&^dj@9u*fw_ety%4duxgrt#w$5o#b0@_+4'
@@ -56,7 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.markup',
-    'south',
+    #'south',
     'radio.frontend',
     'radio.events',
     'radio.library',
@@ -64,19 +66,27 @@ INSTALLED_APPS = (
     'radio.station',
     'radio.staff',
     'gravatar',
-    'djcelery',
-    'gunicorn'
+    #'djcelery',
+    #'gunicorn'
 )
 
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
+    #'django.template.loaders.filesystem.load_template_source',
+	'django.template.loaders.filesystem.Loader',
+	'django.template.loaders.app_directories.Loader',
+	
+    #'django.template.loaders.app_directories.load_template_source',
 )
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), "templates"),
 )
-
+# AUTHENTICATION_BACKENDS = (
+# 	'django.contrib.auth.backends.ModelBackend',
+# )
+# 
+# 
+# SESSION_COOKIE_DOMAIN = 'localhost'
 AUTH_PROFILE_MODULE = 'radio_station.DJ'
 SITE_ID = 1
 
