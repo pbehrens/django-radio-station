@@ -26,6 +26,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
 )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
@@ -34,7 +40,21 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-STATIC_URL = '/admin_media/'
+STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
+# STATIC_URL = '/admin_media/'
+STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+STATICFILES_DIRS = (
+	"/Users/thebeagle/dev/django/django-radio-station/wluw/static/",
+)
+
+ADMIN_MEDIA_PREFIX = '/static/grappelli/'
 
 # Don't share this with anybody.
 SECRET_KEY = 'y3cpni&%g-v-)qge&^dj@9u*fw_ety%4duxgrt#w$5o#b0@_+4'
@@ -45,6 +65,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 )
 
 ROOT_URLCONF = 'wluw.urls'
@@ -54,6 +76,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+	'grappelli',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -65,9 +88,12 @@ INSTALLED_APPS = (
     'radio.logs',
     'radio.station',
     'radio.staff',
+	'radio.content',
     'gravatar',
     #'djcelery',
-    #'gunicorn'
+    'gunicorn',
+	'filebrowser',
+	'tinymce',
 )
 
 TEMPLATE_LOADERS = (
@@ -91,6 +117,24 @@ AUTH_PROFILE_MODULE = 'radio_station.DJ'
 SITE_ID = 1
 
 NODE_PORT = 8124
+
+#tiny mce stuff
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_FILEBROWSER = True
+
+#filebrowser
+
+FILEBROWSER_MEDIA_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/media/'
+FILEBROWSER_MEDIA_URL = '/media/'
+FILEBROWSER_DIRECTORY = 'upload/'
+
+
 
 try:
     from local_settings import *
