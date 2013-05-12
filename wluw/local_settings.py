@@ -15,15 +15,15 @@ DATABASES = {
 DEBUG=True
 TEMPLATE_DEBUG=DEBUG
 
-# CELERY_DEFAULT_EXCHANGE = "tasks"
-# CELERY_RESULT_BACKEND = 'database'
-# CELERY_RESULT_DBURI = 'thebeagle://postgres@localhost/wluw'
-# 
-# CELERY_IMPORTS = ('wluw.radio.library.tasks',)
-# 
-# BROKER_HOST = "localhost"
-# BROKER_PORT = 5672
-# BROKER_VHOST = "/"
-# BROKER_USER = "guest"
-# BROKER_PASSWORD = "guest"
+CELERY_DEFAULT_EXCHANGE = "tasks"
+CELERY_RESULT_BACKEND = 'database'
+CELERY_RESULT_DBURI = 'thebeagle://postgres@localhost/wluw'
+
+CELERY_IMPORTS = ('wluw.radio.library.tasks',)
+
+BROKER_HOST = "localhost"
+BROKER_PORT = 5672
+BROKER_VHOST = "/"
+BROKER_USER = "guest"
+BROKER_PASSWORD = "guest"
 

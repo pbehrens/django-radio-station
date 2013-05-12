@@ -43,7 +43,6 @@ class Entry(models.Model):
     artist = d51fields.ForeignKey(Artist, instantiate_fn=instant_artist)
     album = d51fields.ForeignKey(Album, js_methods=['match_artist_and_startswith'], instantiate_fn=instant_album)
     track = d51fields.ForeignKey(Track, js_methods=['match_album_and_startswith'], instantiate_fn=instant_track)
-    genre = models.ForeignKey(Genre)
     submitted = models.DateTimeField(auto_now_add=True)
     is_rotation = models.BooleanField()
     dj = models.ForeignKey(DJ)

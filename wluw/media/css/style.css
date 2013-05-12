@@ -1,2 +1,409 @@
-@import url(./reset.css);
-@import url(./base.css); 
+.header{
+	height: 100px;
+	padding-top:10px;
+}
+
+#player {
+	
+}
+
+#player img {
+	padding-top: 10px;
+	margin-left: -20px;
+}
+
+.social-buttons{
+	font-color: #786433;
+	padding-top:15px;
+	
+}
+
+h1, h2, h3, h4{
+	color: #4a4748;
+}
+
+h3 {
+	font: 400 30px/0.5 'Arbutus';
+	color:#4a4748;
+}
+
+#sidebar h3{
+	font: 400 30px/.9 'Arbutus';
+	color:#4a4748;
+}
+
+h4 {
+	font: 100 18px/0.5 'Arbutus';
+	color:#4a4748;	
+}
+
+.navbar-inner
+{
+	z-index: -5;
+	background: none !important;
+	border-top: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	min-height: 30px;
+}
+
+.navbar-inner li{
+	line-height:10px;
+}
+
+.navbar-container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 545px;
+	line-height:10px;
+}
+
+.navbar .nav > li > a{
+	color: #000000;
+}
+
+.navbar .navbar-inner li a:hover,{
+	border-bottom:solid 1px #D2232A;
+	z-index: 8;
+	margin-bottom: -1px;
+}
+
+/*.navbar .nav > li > a:visited{
+	border-bottom:solid 1px #D2232A;
+	z-index: 8;
+	margin-bottom: -1px;
+}*/
+
+
+#sub-nav{
+	height:30px;
+	padding-top:10px;	
+}
+
+#sub-nav .row{
+	
+}
+
+.sub-nav-inner{
+/*	border-bottom: 1px solid #000000;*/
+}
+
+#sub-nav li > a{
+	z-index: 8;
+	color: #D2232A;
+}
+#featured-content{
+	margin-left: -40px;
+}
+#about{
+	/*fix width when text is done*/
+	border-bottom: 1px solid #000000;
+/*	bottom:900px;*/
+/*	border-width:900px;*/
+	
+}
+
+#about-nav{
+	margin-left: auto;
+	margin-right: auto;
+	width:300px;
+}
+
+#blog{
+	border-bottom: 1px solid #000000;
+	
+}
+
+#blog-nav{
+	margin-left: auto;
+	margin-right: auto;
+	width:300px;
+}
+
+#sub-nav li {
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+
+.italic-heading h4{
+	font-size:25px;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
+	letter-spacing:2px;
+	padding-bottom:5px;
+}
+
+.log{
+  	font-size: 12px;
+ 	color: #4a4748;
+	padding-top: 3px;
+	line-height:15px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.log .song-name{
+	font:12px;
+	font-weight:bold;
+}
+
+.log .album-name{
+	
+}
+
+.log .artist-name{
+	
+}
+
+.log ul{
+	list-style-type: none;
+	margin-left:0px;
+}
+
+.log li
+{
+	line-height: 15px;
+}
+
+.slider-pane{
+	height:300px;
+	border: 1px dotted #999;
+	padding-bottom:25px;
+}
+
+.bx-prev{
+	float:right;
+}
+
+.bx-next{
+	float:left;
+}
+
+.pager-link{
+	padding-left:4px;
+	padding-right:4px;
+}
+
+.sidebar-donate{
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-bottom:10px;
+}
+
+#upcoming-shows{
+	padding-top:25px;
+}
+.show{
+
+}
+
+#upcoming-shows .show {	
+	padding-bottom:10px;
+	padding-top:10px;
+	border-bottom:1px dotted #999;;
+}
+
+#upcoming-shows .show .time {
+float: left;
+display: inline;
+width: 80px;
+font-weight: 900;
+}
+
+
+.show-description {
+display: block;
+margin-left: 40px;
+margin-top: 15px;
+}
+
+#upcoming-shows .show .name{
+	width:100px;
+	display:inline;
+	font-weight:900;
+}
+
+#upcoming-shows .show .name h5{
+}
+
+#upcoming-shows .show .description{
+	float:none;	
+}
+.description{
+	float:none;	
+}
+#upcoming-shows .show h5{
+	font-weight:800;	
+}
+
+
+
+#upcoming-shows .right-col{
+	width:310px;
+}
+
+
+
+/*slider things*/
+#featured-content li{
+	list-style-type: none;
+}
+
+#featured-nav li a img {
+border-top: 4px solid #fff;
+padding-top: 6px;
+display: block;
+}
+#featured-nav li {
+width: 73px;
+float: left;
+margin-right: 8px;
+margin-top: 10px;
+}
+
+#featured-slider .fea-slides {
+height: 270px;
+overflow: hidden;
+}
+
+#featured-slider {
+width: 478px;
+padding: 10px;
+background: #efefef;
+border: 1px solid #ddd;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+#featured-slider .featured-media {
+display: block;
+width: 478px;
+height: 270px;
+position: relative;
+}
+
+#featured-slider .media {
+position: absolute;
+z-index: 1;
+}
+
+#featured-slider .postteaser {
+background: url(default/bg-transparent.png) repeat;
+width: 458px;
+padding: 10px;
+z-index: 2;
+position: absolute;
+bottom: 0;
+left: 0;
+color: #fff;
+}
+.posttitle {
+font: 21px/22px 'palatino linotype',palatino,'times new roman',times,serif;
+color: #333;
+margin: 0 0 10px 0;
+letter-spacing: -1px;
+}
+
+#featured-slider .posttitle a {
+color: #fff;
+}
+
+#featured-slider p {
+margin: 0;
+}
+#featured-slider .posttitle {
+margin: 0 0 5px;
+font-size: 20px;
+}
+
+#featured-slider .media {
+position: absolute;
+z-index: 1;
+}
+
+
+/*Styles for music logs*/
+
+.well{
+	width:130px;
+	position: relative;
+	left: -40px;
+}
+.archive-list ul{
+margin-left: 10px;
+list-style-type: none;
+}
+
+.archive-list li{
+	list-style-type: none;
+	margin-left:-20px;
+}
+
+.nav-list .divider .archive-list li {
+	width:200px;
+	margin-left:-75px;
+	
+}
+
+/*Exec staff styles*/
+
+#exec-staff-list ul li{
+	float:none;
+	list-style: none;
+	border-bottom:1px solid #000000;
+	height:150px;
+	padding-top:20px;
+	
+}
+
+.staff-member{
+	width: 80%;
+}
+.staff-member-photo{
+	float: left;
+	display: inline;
+	width: 80px;
+	height:150px;
+	font-weight: 900;
+}
+.staff-member-description{
+	display: inline;
+	margin-left: 40px;
+	margin-top: -10px;
+}
+
+.staff-member h4{
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size:30px;
+}
+
+.staff-member h5{
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	font-size:20px;
+}
+.staff-member-description #stage ul li div h4 {
+font-size: 1.2em;
+position: relative;
+top: -3px;
+}
+
+.exec-duties{
+	float:right;
+	display:block;
+	position:relative;
+	bottom:80px;
+}
+
+/*Schedule page*/
+
+.schedule-list ul li{
+	list-style:none;
+	padding-bottom:30px;
+	font-size:20px;
+	line-height:10px;
+	position:relative;
+	right:40px;
+}
+
+.schedule-list ul {
+
+}

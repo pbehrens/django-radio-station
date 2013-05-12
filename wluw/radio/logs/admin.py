@@ -8,12 +8,11 @@ import datetime
 from wluw.radio.library.tasks import grab_album_art, ping_nodejs_with
 
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ('artist', 'track', 'album', 'genre', 'submitted', 'dj')
-    list_filter = ('genre', 'submitted', 'is_rotation',)
-    fields = ('artist', 'track', 'album', 'genre', 'is_rotation')
+    list_display = ('artist', 'track', 'album', 'submitted', 'dj')
+    list_filter = ('submitted', 'is_rotation',)
+    fields = ('artist', 'track', 'album', 'is_rotation')
     verbose_name = "Entry"
     verbose_name_plural = "Entries"
-    radio_fields = {'genre':admin.VERTICAL}
 
     def save_model(self, request, obj, form, change):
         if not hasattr(obj, 'dj'):
@@ -28,9 +27,9 @@ class EntryAdmin(admin.ModelAdmin):
         result = super(EntryAdmin, self).save_model(request, obj, form, change)
 
         if obj.album.status == 0:
-            grab_album_art.delay(obj.album.pk, obj.pk)
+           grab_album_art.delay(obj.album.pk, obj.pk)
         else:
-            ping_nodejs_with.delay(obj.pk)
+           ping_nodejs_with.delay(obj.pk)
 
         return result
 

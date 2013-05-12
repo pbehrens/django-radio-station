@@ -12,37 +12,50 @@
 {% endblock %}
 
 {% block sidebar %}
-    <ul id="page-menu">
-        {% for nav_date in date_range %}
-            {% ifequal nav_date.date at_datetime.date %}
-                <li class="active">
-                    <a href="#">
-                        {% ifequal at_datetime.date current_datetime.date %}
-                            Today
-                        {% else %}
-                            {{ nav_date|date:"l jS" }}
-                        {% endifequal %}
-                    </a>
-                    <ul>
-                        {% for nav_time in time_range %}
-                            <li {% if at_datetime == nav_time %}class="active"{% endif %}>
-                                {% url logs-time nav_date.year nav_date|date:"b" nav_date.day nav_time.hour as nav_url %}
-                                <a href="{{ nav_url }}" title="{{ nav_time|date:"g:ia" }}">{{ nav_time|date:"g:ia" }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% else %}
-                {% url logs-time nav_date.year nav_date|date:"b" nav_date.day 0 as nav_url %}
-                <li>
-                    <a href="{{ nav_url }}" title="{{ nav_date|date:"l jS" }}">{% ifequal nav_date.date current_datetime.date %}Today{% else %}{{ nav_date|date:"l jS" }}{% endifequal %}</a>
-                </li>
-            {% endifequal %}
-        {% endfor %}
-    </ul>
+<div class="span2">
+    <div class="well sidebar-nav">
+    	 <ul class="nav nav-list" id="log-nav">  
+	            <li class="nav-header">Categories</li>
+        		{% for nav_date in date_range %}
+	            	{% ifequal nav_date.date at_datetime.date %}
+	                	<li class="active">
+	                    	<a href="#">
+	                        	{% ifequal at_datetime.date current_datetime.date %}
+	                            	Today
+	                        		{% else %}
+	                            	{{ nav_date|date:"l jS" }}
+	                        		{% endifequal %}
+	                    		</a>
+	                    		<ul class="archive-list"><br>
+	                        		{% for nav_time in time_range %}
+	                            	<li {% if at_datetime == nav_time %}class="active time-period" {% else %} class="time-period" {% endif %}>
+	                                	{% url logs-time nav_date.year nav_date|date:"b" nav_date.day nav_time.hour as nav_url %}
+	                                	<a href="{{ nav_url }}" title="{{ nav_time|date:"g:ia" }}"><i class="icon-music"></i>{{ nav_time|date:"g:ia" }}</a>
+	                            	</li>
+						            <li class="divider"></li>
+	                        		{% endfor %}
+	                    		</ul>
+	                		</li>
+	            			{% else %}
+	                		{% url logs-time nav_date.year nav_date|date:"b" nav_date.day 0 as nav_url %}
+				            
+							<li>
+	                   			<a href="{{ nav_url }}" title="{{ nav_date|date:"l jS" }}">{% ifequal nav_date.date current_datetime.date %}Today{% else %}{{ nav_date|date:"l jS" }}{% endifequal %}</a>
+	                		</li>
+	            			{% endifequal %}
+	        				{% endfor %}
+	
+    				</ul>
+				</div>
 {% endblock %}
 
 {% block stage %}
+
+         
+    </div> 
+</div>
+
+<div class="span7">
     <ul class="navigation">
         <li class="prev"><a href="{% url logs-time prev.year prev|date:"b" prev.day prev.hour %}">3 hours earlier</a></li>
         {% if next %}
@@ -50,12 +63,12 @@
         {% endif %}
     </ul>
     <div class="object-list-tabular">
-        <table>
+        <table class="table table-striped">
             <thead>
-                <th></th>
                 <th>Artist</th>
                 <th>Track</th>
                 <th>Album</th>
+				<th>Time</th>
             </thead>
             <tbody>
                 {% for log in entries %}
@@ -63,18 +76,6 @@
                     <tr class="dj"><td class="djrow" colspan="4">{{ log.dj }}</td></tr>
                 {% endifchanged %}
                 <tr class="{% cycle 'row1' 'row2' %}">
-                    <td class="image">
-                        {% if log.album.status == 2 and log.album.image_medium %}
-                        <a href="{{ log.album.lastfm_url }}" title="listen on last.fm">
-                            <img src="{{ log.album.image_medium }}" alt="{{ log.album.name }}" />
-                        </a>
-                        {% else %}
-                        <a href="#" title="listen on last.fm">
-                            <img src="/media/img/missingart.png" alt="{{ log.album.name }}" />
-                        </a>
-
-                        {% endif %}
-                    </td>
                     <td>
                         <p>{{ log.artist.name }}</p>
                     </td>
@@ -82,16 +83,24 @@
                         <p>{{ log.track.name }}</p>
                     </td>
                     <td>
-                        <div>
-                        <p class="hidden">
+	                    <p>{{ log.album.name }}</p>
+    				</td>
+					<td>
+					    <p class="hidden">
                             {{ log.submitted|date:"l, N jS g:ia" }}
-                        </p>
-                        </div>
-                        <p>{{ log.album.name }}</p>
-                    </td>
+                        </p>	
+					</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+</div>
+	<div class="span3">
+		<div class="sidebar-donate">
+			<a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900"><img src="{{ MEDIA_URL }}/img/donateblack.gif" width="154" height="157" alt="Donateblack"></a>
+		</div>
+		<img src="{{ MEDIA_URL }}/img/sidebar-ad.png" width="220" height="353" alt="Sidebar Ad">
+	</div>
+</div>
 {% endblock %}

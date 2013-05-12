@@ -1,64 +1,210 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>{% block title %}WLUW {% block extra_title %}{% endblock %}{% endblock %}</title>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css"/>
-        <!--[if IE]>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie.css"/>
-        <![endif]-->
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/ie7.css"/>
-        <![endif]-->
+		<link href='http://fonts.googleapis.com/css?family=Arbutus+Slab|Antic+Slab|Raleway+Dots|Fanwood+Text' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css"/>
+        
+		<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+		
 
-        {% block extra_head %}
-        {% endblock %}
-    </head>
-    {% block body %}
-    <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
-        <div id="navigation">
-            <ul>
-                <li><a href="{% url logs-time-now %}">music</a></li>
-                <li><a href="{% url events-list %}">events</a></li>
-                <li><a href="{% url for-day today.weekday %}">schedule</a></li>
-                <li><a href="{% url staff-list %}">about</a></li>
-                <li><a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900">donate</a></li>
-            </ul>
-        </div>
+		<script src="{{ MEDIA_URL }}/js/jquery.bxSlider.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="{{ MEDIA_URL }}/js/animatedcollapse.js" type="text/javascript" charset="utf-8"></script>
+		<script src="{{ MEDIA_URL }}/js/collapse.js" type="text/javascript" charset="utf-8"></script>
+		<script src="{{ MEDIA_URL }}/js/jcarousellite_1.0.1.js" type="text/javascript" charset="utf-8"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>WLUW Chicago Sound Alliance</title>
 
-        {% block content %}
-        {% endblock %}
-        <div id="footer">
-            <div class="wrap">
-                <ul> 
-                    <li> 
-                        <a href="{% url staff-list %}" title="About Us">About</a> 
-                    </li> 
-                    <li> 
-                        <p>&copy; {% now "Y" %} WLUW-FM 88.7 &ndash; Chicago Sound Alliance, broadcasting from the campus of <a href="http://luc.edu" rel="nofollow" title="Loyola University Chicago">Loyola University Chicago</a></p>
-                    </li> 
-                    <li> 
-                        <a href="{% url staff-list %}" title="Volunteer at WLUW (LUC students)">Volunteer at WLUW (LUC students)</a> 
-                    </li> 
-                </ul> 
-            </div>
+<link href='http://fonts.googleapis.com/css?family=Arbutus+Slab|Antic+Slab|Raleway+Dots|Fanwood+Text' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+
+
+<link rel='stylesheet' id='haiku-css'  href='http://www.loyolaphoenix.com/wp-content/plugins/haiku-minimalist-audio-player/haiku-player.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='fancyboxcss-css'  href='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/fancybox/jquery.fancybox-1.3.4.css?ver=3.5' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/jquery.cycle.all.min.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/jquery.tools.min.js?ver=3.5'></script>
+<script type='text/javascript' src='http://apis.google.com/js/plusone.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/flowplayer/flowplayer-3.2.6.min.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/superfish-1.4.8.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/jCarouselLite.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/general.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/fancybox/jquery.fancybox-1.3.4.pack.js?ver=3.5'></script>
+<script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/fancybox/jquery.mousewheel-3.0.4.pack.js?ver=3.5'></script>
+{% block extra_head %}
+{% endblock %}
+</head>
+
+<body>
+	<script>
+	  $(document).ready(function(){
+	      $('#slider1').bxSlider({
+		    pager: true
+		    }
+		  );
+	  });
+	</script>
+	<!-- Haiku -->
+		<script type="text/javascript">
+		var jplayerswf = "http://www.loyolaphoenix.com/wp-content/plugins/haiku-minimalist-audio-player/js/";
+		</script>
+		<!-- end Haiku -->
+		<!-- <link href="http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/styles/default.css" rel="stylesheet" type="text/css" /> -->
+
+		<script type='text/javascript'>
+		(function($) {
+			$(document).ready(function() { 
+
+				$('a[href=#top]').click(function(){
+					$('html, body').animate({scrollTop:0}, 'slow');
+					return false;
+				});
+
+				$("a[rel=gab_gallery]").fancybox({
+					'transitionIn'		: 'none',
+					'transitionOut'		: 'none',
+					'titlePosition' 	: 'over',
+					'titleFormat'       : function(title, currentArray, currentIndex, currentOpts) {
+						return '<span id="fancybox-title-over">' + title /* + ' ('+(currentIndex + 1) + ' / ' + currentArray.length + ')' */ +'</span>';
+					}
+				});			
+
+				$(".show").fancybox({  
+					'titleShow'     : 'false',  
+					'transitionIn'      : 'fade',  
+					'transitionOut'     : 'fade'  
+				});
+
+				$(".iframe").fancybox({	
+					'width'	: '75%',
+					'height' : '75%',
+					'autoScale'     	: false,
+					'transitionIn'		: 'none',
+					'transitionOut'		: 'none',
+					'type'				: 'iframe'
+				});
+								$('#featured-slider .fea-slides').cycle({ 
+						pauseOnPagerHover: 1,
+						prev:   '.fea_prev',
+						next:   '.fea_next',
+						pauseOnPagerHover: 1,
+						fx:     'fade',
+						timeout: '15000',
+						speed: '1000',
+						pager:  '#featured-nav', 
+						pagerAnchorBuilder: function(idx, slide) { 
+							// return selector string for existing anchor 
+							return '#featured-nav li:eq(' + idx + ') a'; 
+						} 
+					});
+
+					$('#video-slider .fea-slides').cycle({ 
+						pauseOnPagerHover: 1,
+						prev:   '.vid_prev',
+						next:   '.vid_next',
+						pager:  '#vid-nav', 
+						fx:     'fade',
+						timeout: 0
+					});
+
+					$('#mid-slider .fea-slides').cycle({ 
+						fx:     'fade', 
+						timeout: 0,
+						prev:   '.media_prev',
+						next:   '.media_next',
+						pauseOnPagerHover: 1,
+						pager:  '#mid-slider-pagination', 
+						pagerAnchorBuilder: function(idx, slide) { 
+							// return selector string for existing anchor 
+							return '#mid-slider-pagination li:eq(' + idx + ') a'; 
+						} 
+					});					
+
+				$("ul.tabs").tabs("div.panes > div");
+
+			});
+		})(jQuery);
+		</script>
+	
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<div id="player">
+				<img src="{{ MEDIA_URL }}/img/dummyplayer.gif" width="200" height="94" alt="Dummyplayer">
+			</div>
+		</div>
+        <div class="span8 header">
+			<img src="{{ MEDIA_URL }}/img/wluw.gif" width="268" height="82" alt="Wluw">
         </div>
-        <div id="swf"></div>
-    </body>
-    {% block javascript %}
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-    {% endblock %}
-    {% endblock %}
-    <script type="text/javascript"> 
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script> 
-    <script type="text/javascript"> 
-    try{
-    var pageTracker = _gat._getTracker("UA-11881354-1");
-    pageTracker._trackPageview();
-    } catch(err) {}
-    </script> 
+        <div class="span1 social-buttons">
+			<div class="row"><img src="{{ MEDIA_URL }}/img/twitter.gif" width="27" height="26" alt="Twitter"></div>
+			<div class="row"><img src="{{ MEDIA_URL }}/img/spotify.gif" width="26" height="28" alt="Spotify"></div>
+			<div class="row"><img src="{{ MEDIA_URL }}/img/facebook.gif" width="25" height="25" alt="Facebook"></div>
+        </div>
+	</div>
+	<div class="row">
+            <div class="navbar">	
+                <div class="navbar-inner">
+					<div class="navbar-container">
+                    	<ul class="nav">
+							 	<li><a href="{% url home %}">HOME</a></li>
+				                <li><a href="#" rel="toggle[about]">ABOUT</a></li>
+				                <li><a href="{% url for-day today.weekday %}">SCHEDULE</a></li>
+				                <li><a href="{% url events-list %}">EVENTS</a></li>
+		                        <li><a href="#" rel="toggle[blog]">BLOG</a></li>
+				                <li><a href="{% url logs-time-now %}">ARCHiVES</a></li>
+	                    </ul>
+					</div>
+                </div>
+				<div id="sub-nav">
+					<div id="about">
+						<div id="about-nav" style="" groupname="srv" speed="400">
+							<ul style="">
+								<li><a href="" title="">History <span>6</span></a></li>
+								<li><a href="" title="">Head Honchos</a></li>
+								<li><a href="" title="">DJ's'</a></li>
+							</ul>
+						</div>
+					</div>
+					<div id="blog" style="" groupname="srv" speed="400">
+						<div id="blog-nav">
+							<ul style="">
+								<li><a href="" title="">Recent Posts <span>6</span></a></li>
+								<li><a href="" title="">Album Reviews</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="row">
+		{% block content %}
+        {% endblock %}
+	</div>
+	<div class="row">
+		<div class="span3">
+			<ul>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Logs</a></li>
+				<li><a href="#">Dj's'</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Schedule</a></li>
+				<li><a href="#">Donate</a></li>
+			</ul>
+		</div>
+		
+
+		
+		<div class="span3">
+			<strong>© 2012 WLUW-FM 88.7</strong><br>
+			Chicago Sound Alliance,<br> broadcasting from the campus of Loyola University Chicago
+		</div>	
+		
+	</div>
+</div>
+</body>
+
 
 </html>
+
