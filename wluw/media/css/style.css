@@ -407,3 +407,18 @@ top: -3px;
 .schedule-list ul {
 
 }
+
+
+/*Footer*/
+#footer{
+	padding-top:50px;
+	padding-bottom:50px;
+}
+.footer-list{
+	padding-left: 150px;
+}
+.footer-list li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
+}
