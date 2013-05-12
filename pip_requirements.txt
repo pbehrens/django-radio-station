@@ -1,64 +1,66 @@
+mercurial
+git+git://github.com/chrisdickinson/surlex.git#egg=surlex
 -e hg+http://bitbucket.org/jespern/django-piston/@e539a104d5165e5a1d5ac72c0c06a4d7cf235c32#egg=django_piston-tip
-# -e git://github.com/chrisdickinson/waiter.git@7a23eea089ed5f63fcb404514b780217e854d749#egg=Waiter-0.1-py2.6-dev
-# -e git://github.com/chrisdickinson/d51_admin_autofk.git@5077973cf829bc3851daa063b337bfbc69b35389#egg=d51_admin_autofk-0.0.1-py2.6-dev
-# -e git://github.com/chrisdickinson/d51_django_admin_piston@fff19481c287b9db51db9166882e0b09e1622764#egg=d51_django_admin_piston-0.0.1-py2.6-dev
-# -e git://github.com/chrisdickinson/surlex.git@2b40e4f9a0e7455b911b767a575bf21330d82a94#egg=surlex-0.1.1-py2.6-dev
-# -e git://github.com/chrisdickinson/tag_utils.git@0050cdf02313fd964a8702a9224bdf6a25942381#egg=tag_utils-0.1-py2.6-dev
-# # Babel
-# Beaker
-# BeautifulSoup
-# Django
-# FormEncode
-# Genshi
-# Mako
-# Markdown
-# MarkupSafe
-# PIL
-# Paste
-# PasteDeploy
-# PasteScript
-# Pygments
-# Pylons
-# Routes
-# SQLAlchemy
-# South
-# Tempita
-# ToscaWidgets
-# Unidecode
-# 
-# WebError
-# WebHelpers
-# WebOb
-# WebTest
-# akismet
-# amqplib
-# anyjson
-# carrot
-# celery
-# decorator
-# django-celery
-# django-picklefield
-# feedparser
-# gdata
-# gunicorn
-# httplib2
-# ## mercurial
-# nose
-# psycopg2
-# pyparsing
-# ##python-apt
-# python-dateutil
-# repoze.what
-# repoze.what-pylons
-# repoze.what-quickstart
-# repoze.what.plugins.sql
-# repoze.who
-# repoze.who-friendlyform
-# repoze.who-testutil
-# ## FIXME: could not find svn URL in dependency_links for this package:
-# simplejson
-# sqlalchemy-migrate
-# tw.forms
-# virtualenv
-# wsgiref
-# zope.interface
+-e git://github.com/chrisdickinson/waiter.git@7a23eea089ed5f63fcb404514b780217e854d749#egg=Waiter-0.1-py2.6-dev
+-e git://github.com/chrisdickinson/d51_admin_autofk.git@5077973cf829bc3851daa063b337bfbc69b35389#egg=d51_admin_autofk-0.0.1-py2.6-dev
+-e git://github.com/chrisdickinson/d51_django_admin_piston@fff19481c287b9db51db9166882e0b09e1622764#egg=d51_django_admin_piston-0.0.1-py2.6-dev
+-e git://github.com/chrisdickinson/surlex.git@2b40e4f9a0e7455b911b767a575bf21330d82a94#egg=surlex-0.1.1-py2.6-dev
+-e git://github.com/chrisdickinson/tag_utils.git@0050cdf02313fd964a8702a9224bdf6a25942381#egg=tag_utils-0.1-py2.6-dev
+# Babel
+Beaker
+BeautifulSoup
+Django
+FormEncode
+Genshi
+Mako
+Markdown
+MarkupSafe
+PIL
+Paste
+PasteDeploy
+PasteScript
+Pygments
+Pylons
+Routes
+SQLAlchemy
+South
+Tempita
+ToscaWidgets
+Unidecode
+
+WebError
+WebHelpers
+WebOb
+WebTest
+akismet
+amqplib
+anyjson
+carrot
+celery
+decorator
+django-celery
+django-picklefield
+feedparser
+gdata
+gunicorn
+httplib2
+## 
+nose
+psycopg2
+pyparsing
+##python-apt
+python-dateutil
+repoze.what
+repoze.what-pylons
+repoze.what-quickstart
+repoze.what.plugins.sql
+repoze.who
+repoze.who-friendlyform
+repoze.who-testutil
+## FIXME: could not find svn URL in dependency_links for this package:
+simplejson
+sqlalchemy-migrate
+tw.forms
+virtualenv
+wsgiref
+zope.interface
