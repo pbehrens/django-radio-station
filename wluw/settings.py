@@ -102,6 +102,12 @@ INSTALLED_APPS = (
     'gunicorn',
 	# 'filebrowser',
 	# 'tinymce',
+
+    #'djcelery',
+#    'gunicorn',
+#	'filebrowser',
+#	'tinymce',
+
 )
 
 TEMPLATE_LOADERS = (
