@@ -161,9 +161,9 @@
 					<div id="about">
 						<div id="about-nav" style="" groupname="srv" speed="400">
 							<ul style="">
-								<li><a href="" title="">History <span>6</span></a></li>
-								<li><a href="" title="">Head Honchos</a></li>
-								<li><a href="" title="">DJ's'</a></li>
+								<li><a href="% url history %}" title="">History <span>6</span></a></li>
+								<li><a href="% url exec-staff %}" title="">Head Honchos</a></li>
+								<li><a href="% url djs %}" title="">DJ's'</a></li>
 							</ul>
 						</div>
 					</div>
@@ -183,38 +183,23 @@
         {% endblock %}
 	</div>
 	<div class="row" id="footer">
-		<div class="offset2 span1">
-				<a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
+		<div class="offset3 span2">
+				<br/><a href="" title="">History</a>
+				<br/><a href="" title="">Head Honchos</a>
+				<br/><a href="" title="">DJ's'</a>
 		</div>
-		<div class="offset1 span1">
-				<a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
+		<div class="span2">
+				 <br/><a href="{% url for-day today.weekday %}">Schedule</a>
+				 <br/><a href="">Events</a>
+	             <br/><a href="">Playlist Archives</a>
 		</div>
-		<div class="offset1 span1">
-				<a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
+		<div class="span2">
+				</br><a href="#">Recent Posts</a>
+				</br><a href="#">Concerts</a>
+				</br><a href="#">Reviews</a>
 		</div>
-		<div class="offset1 span1">
-				<a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
-				</br><a href="#">About</a>
-		</div>
-
-				<!-- <li><a href="#">Logs</a></li>
-				<li><a href="#">Dj's'</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Schedule</a></li>
-				<li><a href="#">Donate</a></li> -->
 		
-		<div class="offset1 span4">
+		<div class="offset1 span3">
 			<strong>© 2012 WLUW-FM 88.7</strong><br>
 			Chicago Sound Alliance,<br> broadcasting from the campus of Loyola University Chicago
 		</div>	

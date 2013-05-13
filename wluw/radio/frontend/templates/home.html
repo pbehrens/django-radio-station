@@ -152,16 +152,17 @@
 		    } catch(err) {}
 		    </script>
 			<div id="upcoming-shows">
-					<h3>Upcoming Shows</h3>
+				
+					<div class="italic-heading"><h3><i>upcoming shows</i></h3></div>
 					 {% for spot in next_spots %}
 					<div class="show">
 						<div class="description">
 							<div class="time">
-							{{ spot.to_datetime|date:"g:ia" }}
+								{{ spot.to_datetime|date:"g:ia" }}
 							</div>
 							<div class="show-description">
 								<div class="name">
-									<a href="{{ spot.show.get_absolute_url }}" title="{{ spot.show }}">{{ spot.show }}</a> with 
+									<a href="{{ spot.show.get_absolute_url }}" title="{{ spot.show }}">{{ spot.show }}</a> with
 									<a href="{{ spot.dj.get_absolute_url }}" title="{{ spot.dj }}">{{ spot.dj }}</a>
 								</div>
 

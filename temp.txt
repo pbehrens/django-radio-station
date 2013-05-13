@@ -1,0 +1,270 @@
+{% block content %}
+        <div class="scene logs">
+            <div id="logo">
+                <h1>
+                    <a href="{% url home %}" title="WLUW.org">Wluw</a>
+                </h1>
+            </div>
+            <div class="scene-left"></div>
+            <div class="scene-right"></div>
+            <div id="nowplaying">
+                <div class="top">
+                    {% with logs|slice:"0:1" as latest_log %}
+                    <div>
+                        <h2>now playing</h2>
+                        <img class="latest image" src="{{ latest_log.0.album.image_large|default:"/media/img/missingart.png" }}" alt="{{ latest_log.0.album.name }}" />
+                        <p>
+                            <span class="caption">artist</span><span class="latest artist">{{ latest_log.0.artist.name|slice:":30" }}</span>
+                            {% if latest_log.0.artist.name|length > 30 %}&hellip;{% endif %}
+                        </p>
+                        <p>
+                            <span class="caption">track</span><span class="latest track">{{ latest_log.0.track.name|slice:":30" }}</span>
+                            {% if latest_log.0.track.name|length > 30 %}&hellip;{% endif %}
+                        </p>
+                        <p>
+                            <span class="caption">album</span><span class="latest album">{{ latest_log.0.album.name|slice:":30" }}</span>
+                            {% if latest_log.0.album.name|length > 30 %}&hellip;{% endif %}
+                        </p>
+                        <p>
+                            <span class="caption">show</span><span class="latest show">{{ current_spot.show }}</span> with <span class="latest dj">{{ latest_log.0.dj }}</span>
+                        </p>
+                        <div id="listen" class="play">
+                            <a class="play" href="#"><span>listen now &raquo;</span></a>
+                            <a class="buffering" href="#"><span>Buffering&hellip;</span></a>
+                            <a class="pause" href="#"><span>Pause</span></a>
+                        </div>
+                    </div>
+                    {% endwith %}
+                </div>
+            </div>
+
+            <div id="logs">
+                <div id="building-top">
+                </div>
+                <div class="field">
+            {% load frontend_tags %}
+            {% get_random_ad as ad %}
+            {% if ad %}
+            <div id="promotion">
+                <a href="{{ ad.link }}" title="{{ ad.name }}">
+                    <img src="{{ MEDIA_URL }}img/promotion_inner.png" alt="{{ ad.name }}" style="background:no-repeat url('{{ MEDIA_URL }}{{ ad.image }}');" />
+                </a>
+            </div>
+            {% endif %}
+                    <div id="events" class="logo"><h2>Logs</h2></div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Artist</th>
+                                <th>Track</th>
+                                <th>Album</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in logs %}
+                            {% ifchanged log.dj %}
+                                <tr class="dj"><td class="djrow" colspan="4">{{ log.dj }}</td></tr>
+                            {% endifchanged %}
+                            <tr class="{% cycle 'row1' 'row2' %}">
+                                <td class="image">
+                                    <a target="_blank" href="{{ log.album.lastfm_url|default:"#" }}" title="listen on last.fm">
+                                        <img src="{{ log.album.image_medium|default:"/media/img/missingart.png" }}" alt="{{ log.album.name }}" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <p>{{ log.artist.name }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.track.name }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.album.name }}</p>
+                                    <p class="log-time">{{ log.submitted|date:"l, N jS g:ia" }}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <p class="lastfm">Album art graciously provided by <a href="http://last.fm/" title="Last.fm">Last.fm</a></p>
+                    <a class="more-link" href="{% url logs-time-now %}" title="view more logs">more logs&hellip;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene events">
+            <div id="events-top"></div>
+            <div class="scene-left"></div>
+            <div class="scene-right"></div>
+            <div class="wrap">
+                <div id="events" class="logo"><h2>Events</h2></div>
+                <div id="events-holder">
+                    {% load events_tags %}
+                    <div class="calendar">
+                        <h3>Events for {{ now|date:"F" }}</h3>
+                        <div>{% calendar_block %}</div>
+                    </div>
+                    {% if events.today %}
+                    <h3 class="event_list_header">Today</h3>
+                    <ul>
+                        {% for event in events.today %}
+                        <li>
+                            <h4><a href="{{ event.get_absolute_url }}">{{ event }}</a></h4>
+                            <p>{{ event.blurb }}</p>
+                            <p class="datetime">{{ event.time_start|time:"g:ia" }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if events.tomorrow %}
+                    <h3 class="event_list_header">Tomorrow</h3>
+                    <ul>
+                        {% for event in events.tomorrow %}
+                        <li>
+                            <h4><a href="{{ event.get_absolute_url }}">{{ event }}</a></h4>
+                            <p>{{ event.blurb }}</p>
+                            <p class="datetime">{{ event.time_start|time:"g:ia" }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if events.day_after %}
+                    <h3 class="event_list_header">{{ day_after_tomorrow|date:"l" }}</h3>
+                    <ul>
+                        {% for event in events.day_after %}
+                        <li>
+                            <h4><a href="{{ event.get_absolute_url }}">{{ event }}</a></h4>
+                            <p>{{ event.blurb }}</p>
+                            <p class="datetime">{{ event.time_start|time:"g:ia" }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="scene shows">
+            <div class="scene-left"></div>
+            <div class="scene-right"></div>
+            <div class="wrap">
+                <div id="shows" class="logo"><h2>Shows</h2></div>
+                <div>
+                    <ul>
+                        {% for spot in next_spots %}
+                            <li>
+                                <h3><a href="{{ spot.show.get_absolute_url }}" title="{{ spot.show }}">{{ spot.show }}</a></h3>
+                                <p class="dj">with <a href="{{ spot.dj.get_absolute_url }}" title="{{ spot.dj }}">{{ spot.dj }}</a></p>
+                                <p>{{ spot.show.blurb }}</p>
+                                <p class="datetime">{{ spot.to_datetime|date:"g:ia" }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a class="more-link" href="{% url for-day today.weekday %}" title="View the entire schedule">View the entire schedule&hellip;</a>
+                </div>
+            </div>
+        </div>
+        <div class="scene about">
+            <div class="wrap">
+            </div>
+        </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(function() {
+            if(navigator.userAgent.match(/i(phone|pad)/i)) {
+                var audio = null,
+                    link = $('#listen a'),
+                    holder = $('#listen');
+                link.click(function(ev) {
+                    ev.preventDefault();
+                    if(!audio) {
+                        audio = new Audio('http://amber.streamguys.com:4100/stream.mp3');
+                        holder.removeClass('play').addClass('buffering');
+                        audio.addEventListener('canplaythrough', function(ev) {
+                            holder.removeClass('buffering').addClass('pause');
+                        });
+                        audio.play();
+                    } else {
+                        holder.removeClass('pause').removeClass('buffering').addClass('play');
+                        audio.pause();
+                        delete audio;
+                        audio = null;
+                    }
+                });
+            } else {
+                var swf = '{{ MEDIA_URL }}flash/audio.swf',
+                    attributes = {'id':'player', 'name':'player'},
+                    swfObj = swfobject.embedSWF(swf, 'swf', 1,1, '9.0.0', 'expressInstall.swf', false, {}, attributes),
+                    player = $('#player').get()[0],
+                    listenButton = $('#listen a'),
+                    playing = false;
+
+                window.audioReady = function(state) {
+                    $('#listen').removeClass('buffering').addClass('pause');
+                };
+
+                listenButton.bind('click', function(ev) {
+                    ev.preventDefault();
+                    if(!playing) {
+                        $('#listen').removeClass('play').addClass('buffering');
+                    } else {
+                        $('#listen').removeClass('pause').removeClass('buffering').addClass('play');
+                    }
+                    playing = !playing;
+                    $('#player').get()[0].startStop(playing);
+                });
+            }
+
+            var nav = document.getElementById('navigation'),
+                initial = nav.offsetTop,
+                docked = false;
+            window.onscroll = function () {
+                var scrollTop = document.body.scrollTop ? document.body.scrollTop : document.documentElement.scrollTop;
+                if(!docked && nav.offsetTop - scrollTop < 0) {
+                    nav.style.position = 'fixed';
+                    nav.style.top = 0;
+                    docked = true;
+                } else if(docked && scrollTop < initial) {
+                    nav.style.position = 'absolute';
+                    nav.style.top = initial + 'px';
+                    docked = false;
+                }
+            };
+        });
+    </script>
+    <script type="text/javascript" src="http://staging.wluw.org:8125/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = new io.Socket(document.domain, {port:8125}),
+            parse = typeof(JSON) === 'undefined' ? function(data) {
+                return eval('('+data+')');
+            } : JSON.parse;
+
+        socket.on('message', function(data) {
+            data = parse(data);
+
+            $('#nowplaying .latest').animate({opacity:0.0}, 250, 'swing', function() {
+                $('#nowplaying .latest').each(function() {
+                    var $this = $(this),
+                        name = (function(items) {
+                            for(var i = 0, len = items.length; i < len; ++i) {
+                                if(items[i] !== 'latest') return items[i];
+                            }
+                        })($this.attr('class').split(' '));
+                    data[name] = data[name] === 'None' ? undefined : data[name];
+                    if($this.is('img')) {
+                        $this.attr('src', data[name] || '/media/img/missingart.png');
+                    } else {
+                        $this.text(data[name]);
+                    }
+                });
+                setTimeout(function() {
+                    $('#nowplaying .latest').animate({opacity:1.0}, 500, 'swing');
+                }, 500);
+            });
+        });
+        socket.connect();
+    </script>
+{% endblock %}
