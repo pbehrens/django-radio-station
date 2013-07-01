@@ -112,3 +112,12 @@ def chart_view(request, year=None, month=None, week=None, what=None, rotation=Fa
         'next_week_no':next_week_no,
     }
     return render_to_response('radio.logs/charts_view.html', ctxt, context_instance=RequestContext(request))
+
+def csv(request):
+	latest_logs = Entry.objects.all().order_by('-submitted')[2000:6000]	
+	ctxt = {
+		'logs':latest_logs,
+    	}
+	return render_to_response('csv.html', ctxt, context_instance=RequestContext(request)) 
+
+

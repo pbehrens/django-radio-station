@@ -59,7 +59,7 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (
-	"/Users/thebeagle/dev/django/django-radio-station/wluw/static/",
+	"/Users/thebeagle/dev/django/django-radio-station/wluw/static_files/",
 )
 
 ADMIN_MEDIA_PREFIX = '/static/grappelli/'
@@ -84,11 +84,12 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-	# 'grappelli',
+	'grappelli',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.markup',
+	'django.contrib.staticfiles',
     #'south',
     'radio.frontend',
     'radio.events',
@@ -149,6 +150,8 @@ FILEBROWSER_MEDIA_URL = '/media/'
 FILEBROWSER_DIRECTORY = 'upload/'
 
 
+import django.template
+django.template.add_to_builtins('django.templatetags.future')
 
 try:
     from local_settings import *

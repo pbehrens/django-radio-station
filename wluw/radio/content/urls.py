@@ -1,12 +1,7 @@
-from django.conf.urls import patterns, include, url
-
-from django.contrib import admin
-admin.autodiscover()
+from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
-    url(r'^post/$', 'content.views.index'),
-	url(r'^post/(?P<post_id>\d+)/$', 'content.views.detail'),
-    url(r'^post/all/$', 'content.views.all'),
-
-    url(r'^admin/', include(admin.site.urls)),
+    'radio.content.views',
+    (r'^$', 'index', name='index'),
+    (r'^(?P<post_id>\d+)/$', 'radio.content.views.detail'),
 )

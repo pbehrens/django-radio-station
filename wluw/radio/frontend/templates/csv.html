@@ -1,0 +1,7 @@
+artist,track,album,date
+                            {% for log in logs %}
+                                    {{ log.artist.name }},
+                                    {{ log.track.name }},
+                                    {{ log.submitted|date:" l N jS g:ia Y" }}
+					<br>
+                            {% endfor %}

@@ -1,8 +1,4 @@
-<html>
-<title>All Posts</title>
-<head>
-	
-</head>
+
 {% block content %}
     <div class="main">
 
@@ -38,3 +34,16 @@
     </div>
 
 {% endblock %}
+
+
+
+{% if latest_content %}
+    <ul>
+    {% for post in latest_content %}
+        <h1><a href="/post/{{ post.id }}/">{{ post.title }}</a><h1>
+    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

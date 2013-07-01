@@ -17,15 +17,6 @@ def detail(request, post_id):
 	return render_to_response('detail.html', {'post': p})
 		
 def index(request):
-	latest_content = Post.objects.all().order_by('-pub_date')[:10]
-	
-	c = Context({
-	  	'latest_content': latest_content,
-	})
-	return render_to_response('index.html', c, context_instance=RequestContext(request)) 
-	
-	
-def all(request):
 	posts = Post.objects.all()
 	paginator = Paginator(posts, 2)
 	try: page = int(request.GET.get("page", '1'))
@@ -36,10 +27,8 @@ def all(request):
 	except (InvalidPage, EmptyPage):
 		posts = paginator.page(paginator.num_pages)
 
-	return render_to_response("list.html", dict(posts=posts))
-
-
-	 
+	return render_to_response("index.html", dict(posts=posts))
+ 
 
 
 

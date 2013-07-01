@@ -86,4 +86,13 @@ def listen(request):
         'roles':roles,
     }
     return render_to_response('listen.html', ctxt, context_instance=RequestContext(request))
-	
+
+def csv(request):
+	# latest_logs = Entry.objects.all().order_by('-submitted')[2000:6000]	
+	latest_logs = Entry.objects.filter(submitted__year='2012', submitted__month='01')
+	ctxt = {
+		'logs':latest_logs,
+	   	}
+	return render_to_response('csv.html', ctxt, context_instance=RequestContext(request)) 
+
+
