@@ -55,7 +55,7 @@ urlpatterns = patterns(
     (r'^events/', include('radio.events.urls')),
     (r'^station/', include('radio.station.urls')),
     (r'^staff/', include('radio.staff.urls')),
-	(r'^post/(?P<post_id>\d+)/$', 'radio.content.views.detail'),
+	(r'^post/', include('radio.content.urls')),
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^', include('radio.frontend.urls')),

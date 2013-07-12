@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
+from radio.content import views
 
 urlpatterns = patterns('',
-    'radio.content.views',
-    (r'^$', 'index', name='index'),
-    (r'^(?P<post_id>\d+)/$', 'radio.content.views.detail'),
+    url(r'^$', views.index, name='index'),
+    url(r'^(?P<post_id>\d+)/$', views.detail, name='detail'),
 )

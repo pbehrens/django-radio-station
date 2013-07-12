@@ -263,12 +263,22 @@ margin-top: 15px;
 #featured-nav li a img {
 border-top: 4px solid #fff;
 padding-top: 6px;
+margin-right:-10px;
+margin-left:-10px;
 display: block;
+width:75px;
+height:85px;
+/*border: 1px solid #000000;
+*/
+-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;
+
 }
 #featured-nav li {
 width: 73px;
 float: left;
-margin-right: 8px;
+margin-right: 17px;
 margin-top: 10px;
 }
 
