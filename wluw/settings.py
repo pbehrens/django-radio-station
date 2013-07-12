@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.markup',
 	'django.contrib.staticfiles',
-    #'south',
+    'south',
     'radio.frontend',
     'radio.events',
     'radio.library',
@@ -101,6 +101,8 @@ INSTALLED_APPS = (
     'gravatar',
     'djcelery',
     'gunicorn',
+    'sorl.thumbnail',
+
 	# 'filebrowser',
 	# 'tinymce',
 
@@ -145,8 +147,8 @@ TINYMCE_FILEBROWSER = True
 
 #filebrowser
 
-FILEBROWSER_MEDIA_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/media/'
-FILEBROWSER_MEDIA_URL = '/media/'
+FILEBROWSER_MEDIA_ROOT = '/Volumes/files/thebeagle/dev/django/django-radio-station/wluw/media'
+FILEBROWSER_MEDIA_URL = '/media'
 FILEBROWSER_DIRECTORY = 'upload/'
 
 

@@ -1,0 +1,49 @@
+
+{% block content %}
+    <div class="main">
+
+        <!-- Posts  -->
+        <ul>
+            {% for post in posts.object_list %}
+                <div class="title">{{ post.title }}</div>
+                <ul>
+                    <div class="time">{{ post.post|safe }}</div>
+                </ul>
+            {% endfor %}
+        </ul>
+
+        <!-- Next/Prev page links  -->
+        {% if posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
+
+
+
+{% if latest_content %}
+    <ul>
+    {% for post in latest_content %}
+        <h1><a href="/post/{{ post.id }}/">{{ post.title }}</a><h1>
+    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
