@@ -32,6 +32,44 @@
 <script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/fancybox/jquery.mousewheel-3.0.4.pack.js?ver=3.5'></script>
 <script type='text/javascript' src='http://www.loyolaphoenix.com/wp-content/themes/advanced-newspaper/inc/js/fancybox/jquery.fancybox-1.3.4.pack.js?ver=3.5'></script>
 
+<link rel="stylesheet" href="skin/circle.skin/circle.player.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link href="skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+	var stream = {
+		title: "WLUW Chicago Sound Alliance",
+		mp3: "http://amber.streamguys.com:4100/stream.mp3"
+	},
+	ready = false;
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function (event) {
+			ready = true;
+			$(this).jPlayer("setMedia", stream);
+		},
+		pause: function() {
+			$(this).jPlayer("clearMedia");
+		},
+		error: function(event) {
+			if(ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+				// Setup the media stream again and play it.
+				$(this).jPlayer("setMedia", stream).jPlayer("play");
+			}
+		},
+		swfPath: "js",
+		supplied: "mp3",
+		preload: "none",
+		wmode: "window",
+		keyEnabled: true
+	});
+
+});
+//]]>
+</script>
+</head>
 
 <script>
 if ($('#featured-slider') && ($('#featured-slider').children().length == 1)) {
@@ -140,8 +178,33 @@ if ($('#featured-slider') && ($('#featured-slider').children().length == 1)) {
 	<div class="row">
 		<div class="span3">
 			<div id="player">
-				<img src="{{ MEDIA_URL }}/img/dummyplayer.gif" width="200" height="94" alt="Dummyplayer">
-			</div>
+				<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+
+				<div id="jp_container_1" class="jp-audio-stream">
+					<div class="jp-type-single">
+						<div class="jp-gui jp-interface">
+							<ul class="jp-controls">
+								<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+								<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+								<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+								<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+							</ul>
+							<div class="jp-volume-bar">
+								<div class="jp-volume-bar-value"></div>
+							</div>
+						</div>
+						<div class="jp-title">
+							<ul>
+								<li>WLUW !!!!!!!!!!!!!!!!!!!</li>
+							</ul>
+						</div>
+						<div class="jp-no-solution">
+							<span>Update Required</span>
+							To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+						</div>
+					</div>
+				</div>			</div>
 		</div>
         <div class="span8 header">
 			<img src="{{ MEDIA_URL }}/img/wluw.gif" width="268" height="82" alt="Wluw">
