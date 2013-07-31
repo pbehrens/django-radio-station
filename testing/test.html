@@ -1,0 +1,52 @@
+<html>
+<head></head>
+<body>
+	<script>
+	
+	// Invoke new Audio object
+	var audio = new Audio('http://amber.streamguys.com:4100/stream.mp3');
+
+	// Get the play button and append an audio play method to onclick
+	var play = document.getElementById('play');
+	play.addEventListener('click', function(){
+	    audio.play();
+	}, false);
+
+	// Get the pause button and append an audio pause method to onclick
+	var pause = document.getElementById('pause');
+	pause.addEventListener('click', function(){
+	    audio.pause();
+	}, false);
+
+	// Get the HTML5 range input element and append audio volume adjustment to onchange
+	var volume = document.getElementById('volume');
+	volume.addEventListener('change', function(){
+	    audio.volume = parseFloat(this.value / 10);
+	}, false);
+
+	// Get where one are in playback and push the time to an element
+	audio.addEventListener("timeupdate", function() {
+	    var duration = document.getElementById('duration');
+	    var s = parseInt(audio.currentTime % 60);
+	    var m = parseInt((audio.currentTime / 60) % 60);
+	    duration.innerHTML = m + '.' + s + 'sec';
+	}, false);
+	
+	</script>
+	
+	
+	<div>
+	    <input id="play" type="button" value="Play" />
+	    <input id="pause" type="button" value="Pause" />
+	    <span id="duration"> </span>
+	</div>
+	<div>
+	    Volume:
+	    <input id="volume" type="range" min="0" max="10" value="5" />
+	</div>
+
+	
+	
+</body>
+
+</html>
