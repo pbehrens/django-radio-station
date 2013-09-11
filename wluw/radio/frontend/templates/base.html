@@ -35,6 +35,9 @@
 <link rel="stylesheet" href="{{ MEDIA_URL }}/skin/circle.skin/circle.player.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link href="{{ MEDIA_URL }}/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/soundcloud.player.api.js"></script>
+
+
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(function(){
@@ -68,6 +71,11 @@ $(document).ready(function(){
 
 });
 //]]>
+</script>
+<script type="text/javascript">
+   soundcloud.addEventListener('onPlayerReady', function(player, data) {
+     player.api_play();
+   });
 </script>
 </head>
 

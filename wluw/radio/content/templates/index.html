@@ -2,36 +2,88 @@
 
 
 {% block content %}
+
+	<div class="span3">
+		<div id="log-sidebar">
+			<div class="italic-heading">
+			<h4><i>recently played</i></h4>
+			</div>
+			
+			 {% for log in logs %}
+                {% ifchanged log.dj %}
+                    <div class="dj"></div>
+                {% endifchanged %}
+                <div class="log">
+						<div class="log-text">
+							<div class="song-name">{{ log.track.name }}</div>
+							<div class="album-name">{{ log.album.name }}</div>
+							<div class="artist-name">{{ log.artist.name }}</div>
+						</div>
+				</div>
+                {% endfor %}
+		</div>
+	</div>
+	<div class="span6">
+		<div id="blog-list">
+			
+		  <!-- Posts  -->
+	            {% for post in posts.object_list %}
+					<div class="post">
+						<p class="date">{{post.created_at|date:'j' }} <span>{{post.created_at|date:'b' }}</span></p>
+						<h2><a href="#">{{ post.title }}</a></h2>
+						<ul class="meta">
+							<li class="comments"><a href="#">5 Comments</a></li>
+						</ul>
+						<div class="post-content">
+							<img src="{{post.coverImage}}">  
+							{{post.post|safe}}
+						</div>	
+					</div>
+
+
+
+	            {% endfor %}
+
+	        <!-- Next/Prev page links  -->
+	        {% if posts.object_list and posts.paginator.num_pages > 1 %}
+			<div class="pagination">
+				<p class="prev"><a href="#">Older posts</a></p>
+				<p class="next"><a href="#">Newer posts</a></p>
+			</div>
+	        <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
+	            <span class="step-links">
+	                {% if posts.has_previous %}
+	                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
+	                {% endif %}
+
+	                <span class="current">
+	                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+	                </span>
+
+	                {% if posts.has_next %}
+	                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
+	                {% endif %}
+	            </span>
+	        </div>
+	        {% endif %}
+
+		</div>
+	</div>
+	<div class="span3">
+		<div class="sidebar-donate">
+			<a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900"><img src="{{ MEDIA_URL }}/img/donateblack.gif" width="154" height="400" alt="Donateblack"></a>
+		</div>
+		<div class="sidebar-soundcloud">
+			<iframe width="220" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F109590448"></iframe>
+		
+		</div>
+		<img src="{{ MEDIA_URL }}/img/sidebar-ad.png" width="220" height="353" alt="Sidebar Ad">
+	</div>
+
+
     <div class="main">
 
-        <!-- Posts  -->
-        <ul>
-            {% for post in posts.object_list %}
-                <div class="title">{{ post.title }}</div>
-                <ul>
-                    <div class="time">{{ post.post|safe }}</div>
-                </ul>
-            {% endfor %}
-        </ul>
-
-        <!-- Next/Prev page links  -->
-        {% if posts.object_list and posts.paginator.num_pages > 1 %}
-        <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
-            <span class="step-links">
-                {% if posts.has_previous %}
-                    <a href= "?page={{ posts.previous_page_number }}">newer entries &lt;&lt; </a>
-                {% endif %}
-
-                <span class="current">
-                    &nbsp;Page {{ posts.number }} of {{ posts.paginator.num_pages }}
-                </span>
-
-                {% if posts.has_next %}
-                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; older entries</a>
-                {% endif %}
-            </span>
-        </div>
-        {% endif %}
+      
 
     </div>
 

@@ -1,9 +1,45 @@
 {% extends "base.html" %}
 
 
-<body>
-{{post.title}}
+	<div class="span3">
+		<div id="log-sidebar">
+			<div class="italic-heading">
+			<h4><i>recently played</i></h4>
+			</div>
+			
+			 {% for log in logs %}
+                {% ifchanged log.dj %}
+                    <div class="dj"></div>
+                {% endifchanged %}
+                <div class="log">
+						<div class="log-text">
+							<div class="song-name">{{ log.track.name }}</div>
+							<div class="album-name">{{ log.album.name }}</div>
+							<div class="artist-name">{{ log.artist.name }}</div>
+						</div>
+				</div>
+                {% endfor %}
+		</div>
+	</div>
+	<div class="span6">
 
+	</div>
+	<div class="span3">
+		<div class="sidebar-donate">
+			<a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900"><img src="{{ MEDIA_URL }}/img/donateblack.gif" width="154" height="400" alt="Donateblack"></a>
+		</div>
+		<div class="sidebar-soundcloud">
+			<iframe width="220" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F109590448"></iframe>
+		
+		</div>
+		<img src="{{ MEDIA_URL }}/img/sidebar-ad.png" width="220" height="353" alt="Sidebar Ad">
+	</div>
+
+
+
+
+<h3>{{post.title}}</h3>
+
+<div class="post-body">
 {{post.post|safe}}
-</body>
-</html>
+</div>
