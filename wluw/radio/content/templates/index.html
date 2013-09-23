@@ -30,18 +30,17 @@
 	            {% for post in posts.object_list %}
 					<div class="post">
 						<p class="date">{{post.created_at|date:'j' }} <span>{{post.created_at|date:'b' }}</span></p>
+						<div class="commentlink"><a href=" url content.views.detail post.pk %}">Comments</a></div>
+						
 						<h2><a href="#">{{ post.title }}</a></h2>
 						<ul class="meta">
 							<li class="comments"><a href="#">5 Comments</a></li>
 						</ul>
 						<div class="post-content">
-							<img src="{{post.coverImage}}">  
+							<img src="{{post.coverImage.url}}"><br><br>  
 							{{post.post|safe}}
 						</div>	
 					</div>
-
-
-
 	            {% endfor %}
 
 	        <!-- Next/Prev page links  -->

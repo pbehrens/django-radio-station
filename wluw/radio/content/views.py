@@ -9,9 +9,9 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from radio.logs.models import Entry
 
 
-def detail(request, post_id):
+def detail(request, pk):
 	try:
-		p = Post.objects.get(pk=post_id).order_by('-pub_date')
+		p = Post.objects.get(pk=pk).order_by('-pub_date')
 	except Post.DoesNotExist:
 		raise Http404
 	latest_logs = Entry.objects.all().order_by('-submitted')[0:10]
@@ -19,9 +19,7 @@ def detail(request, post_id):
 	ctxt = {
         'logs':latest_logs,
 		'post':p,
-    }
-	
-		
+    }	
 	return render_to_response('detail.html', ctxt, context_instance=RequestContext(request))
 		
 def index(request):

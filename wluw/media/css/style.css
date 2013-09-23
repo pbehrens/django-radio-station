@@ -457,8 +457,12 @@ top: -3px;
 /*Footer*/
 #footer{
 	border-top:2px solid #000000;
-	padding-top:50px;
+	padding-top:5px;
 	padding-bottom:50px;
+}
+
+.footer-right-line{
+	border-right: 1px dotted #999;
 }
 .footer-list{
 	padding-left: 150px;
@@ -468,11 +472,6 @@ top: -3px;
 	list-style-type: none;
 	padding-right: 20px;
 }
-
-
-
-
-
 
 #blog-list .post {
 			position: relative; margin: 0 0 60px 0; padding: 0 0 66px 0; overflow: hidden;
