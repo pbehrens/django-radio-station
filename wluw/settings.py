@@ -84,7 +84,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-	# 'grappelli',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -106,7 +106,7 @@ INSTALLED_APPS = (
     #'djcelery',
 #    'gunicorn',
 #	'filebrowser',
-#	'tinymce',
+    'tinymce',
 
 )
 
