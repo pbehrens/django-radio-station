@@ -2,20 +2,94 @@
 
 {% block staff_content_main %}
 <h2 class="header">Staff</h2>
-<ul class="object-list">
-{% for role in roles %}
-    <li class="object-list-item">
-        <dl>
-            <dt>Position</dt>
-            <dd>{{ role.role.title }}</dd>
-            <dt>Name</dt>
-            <dd>{{ role.user.get_full_name }}</dd>
-            <dt>Email</dt>
-            <dd>{{ role.get_email }}</dd>
-            <dt>Phone</dt>
-            <dd>{{ role.get_phone }}</dd>
-        </dl>
-    </li>
-{% endfor %}
-</ul>
+<ul>
+            <li>
+                    <img src="http://i.imgur.com/I2SeC.png" height="60" width="60" />
+                    <div>
+                    <h4>Program Director</h4>
+                    <p>Jason Wieder</p>
+					<p><script>mail("wluwprogramming","luc",1,"")</script></p>
+                    <p>312.915.8807</p>
+                    </div>
+            </li>
+		<li>
+                    <img src="http://i.imgur.com/9CtM1.jpg" height="58" width="58">
+                    <div>
+                    <h4> Music Director</h4>
+                    <p>Nina Berman</p>
+                    <p><script>mail("musicdeptwluw","gmail",0,"")</script></p>
+                    <p>312.915.8808</p>
+                    </div>
+            </li>
+            <li>
+                    <div>
+                    <h4>Assistant  Music Director</h4>
+                    <p>Cecil B. Gardner</p>
+                    <p><script>mail("musicdeptwluw","gmail",0,"")</script></p>
+                    <p>312.915.8808</p>
+                    </div>
+            </li>
+            <li>
+		<img src="http://i.imgur.com/eZ94Zhq.jpg" height="60" width="60">
+                    <div>
+                    <h4>Promotions Director</h4>
+                    <p>David Giron</p>
+                    <p><script>mail("wluwpromodept","gmail",0,"")</script></p>
+                    <p>312.915.8827</p>
+                    </div>
+            </li>
+            <li>
+                <img src="http://i.imgur.com/GqkywC3.jpg" height="60" width="60">
+                    <div>
+                    <h4>Promotions Director</h4>
+                    <p>Juan Gabriel Perez (Gabe)</p>
+                    <p><script>mail("wluwpromodept","gmail",0,"")</script></p>
+                    <p>312.915.8827</p>
+                    </div>
+            </li>
+             <li>
+                    <img src="http://i.imgur.com/sVHkcHI.png" height="58" width="58">
+                    <div>
+                    <h4>Production Director</h4>
+                    <p>Emily Olsen</p>
+                    <p><script>mail("wluwproduction","luc",1,"")</script></p>
+                    </div>
+            </li>
+                <li>
+                    <img src="http://i.imgur.com/MXUs9TD.jpg" height="58" width="58">
+                    <div>
+                    <h4>Booking Director</h4>
+                    <p>Chloe Croom</p>
+                    <p><script>mail("ccroom","luc",1,"")</script></p>
+                    </div>
+            </li>
+            <li>
+                    <img src="http://www.gravatar.com/avatar/adc780dadd23bf45032c2bf439490584/?default=&amp;s=80" height="60" width="60" />
+                    <div>
+                    <h4>Web Guy</h4>
+                    <p>Patrick  Behrens</p>
+                    <p><script>mail("pbehrens","luc",1,"","Email: The Web Guru")</script></p> 
+                    <p></p>
+                    </div>
+            </li>
+            <li>
+                    <img src="http://www.gravatar.com/avatar/579a81c2117ee6c62109b9a8e423d302/?default=&amp;s=80" height="60" width="60" />
+                    <div>
+                    <h4>Cat Relations</h4>
+                    <p>Miro the Cat</p>
+                    <p><script>mail("catrelations","gmail",0,"")</script></p> 
+                    <p>773.508.9589</p>
+                    </div>
+            </li>
+            <li>
+                    <img src="http://i.imgur.com/R0lv7rZ.jpg" height="60" width="60" />
+                    <div>
+                    <h4>Student Station Manager</h4>
+                    <p>Tanna Solberg</p>
+                    <p><script>mail("tsolberg","luc",1,"")</script></p> 
+                    <p>312.915.8806</p>
+                    </div>
+            </li>
+        </ul>		
+
 {% endblock %}

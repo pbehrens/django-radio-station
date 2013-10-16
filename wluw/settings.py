@@ -48,7 +48,8 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
+#STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 # STATIC_URL = '/admin_media/'
 STATIC_URL = '/static/'
 
@@ -59,7 +60,7 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (
-	"/Users/thebeagle/dev/django/django-radio-station/wluw/static/",
+	os.path.join(os.path.dirname(__file__), 'static_files'),
 )
 
 ADMIN_MEDIA_PREFIX = '/static/grappelli/'
@@ -89,7 +90,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.markup',
-    #'south',
+	'django.contrib.staticfiles',
+    'south',
     'radio.frontend',
     'radio.events',
     'radio.library',
@@ -100,13 +102,15 @@ INSTALLED_APPS = (
     'gravatar',
     'djcelery',
     'gunicorn',
+    'sorl.thumbnail',
+
 	# 'filebrowser',
 	# 'tinymce',
 
     #'djcelery',
 #    'gunicorn',
 #	'filebrowser',
-    'tinymce',
+#    'tinymce',
 
 )
 
@@ -115,7 +119,7 @@ TEMPLATE_LOADERS = (
 	'django.template.loaders.filesystem.Loader',
 	'django.template.loaders.app_directories.Loader',
 	
-    #'django.template.loaders.app_directories.load_template_source',
+    # 'django.template.loaders.app_directories.load_template_source',
 )
 
 TEMPLATE_DIRS = (
@@ -143,12 +147,14 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_FILEBROWSER = True
 
 #filebrowser
-
-FILEBROWSER_MEDIA_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/media/'
-FILEBROWSER_MEDIA_URL = '/media/'
+FILEBROWSER_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+#FILEBROWSER_MEDIA_ROOT = '/Volumes/files/thebeagle/dev/django/django-radio-station/wluw/media'
+FILEBROWSER_MEDIA_URL = '/media'
 FILEBROWSER_DIRECTORY = 'upload/'
 
 
+import django.template
+django.template.add_to_builtins('django.templatetags.future')
 
 try:
     from local_settings import *

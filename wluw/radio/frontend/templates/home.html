@@ -25,113 +25,40 @@
 			</div>
 		</div>
 		<div class="span6">
+			
+			
+			
+			
+			
 			<div id="spotlight">
 				<div id="featured-content">
 					<div id="featured-slider">
 						<div class="fea-slides" style="position: relative;">
+							{% for post in featured_content %}
+						 
 							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 6; opacity: 0; width: 478px; height: 270px;">
 								<div class="featured-media">
-									<a href="http://google.com" rel="bookmark"><img src="{{ MEDIA_URL }}/img/concert.png" class="media" alt="" title=""></a>
+									<a href="" rel="bookmark"><img src="{{post.coverImage.url}}" class="media" alt="" title=""></a>
 									<div class="postteaser">
 										<h2 class="posttitle">
-											<a href="http://google.com" rel="bookmark" title="Permalink to USGA working to require syllabus online">WLUW is a great station</a>
+											<a href="post.}}" rel="bookmark" title="">{{post.title}}</a>	
 										</h2>
 										<p>Some more text</p>
 									</div>
 								</div>
 							</div><!-- .slide-item -->
-							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 6; opacity: 0; width: 478px; height: 270px;">
-								<div class="featured-media">
-									<a href="http://google.com" rel="bookmark"><img src="{{ MEDIA_URL }}/img/concert.png" class="media" alt="" title=""></a>
-									<div class="postteaser">
-										<h2 class="posttitle">
-											<a href="http://google.com" rel="bookmark" title="">Some Text</a>
-										</h2>
-										<p>Shivering and cold in the first days of the spring…</p>
-									</div>
-								</div>
-							</div><!-- .slide-item -->
-							
-							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 6; opacity: 0; width: 478px; height: 270px;">
-								<div class="featured-media">
-									<a href="http://google.com" rel="bookmark"><img src= "{{ MEDIA_URL }}/img/oncert.png" class="media" alt="New Wellness Center slated for Baumhart Hall" title="New Wellness Center slated for Baumhart Hall"></a>
-
-									<div class="postteaser">
-										<h2 class="posttitle">
-											<a href="http://google.com" rel="bookmark" title="Permalink to New Wellness Center slated for Baumhart Hall">Some text to a link</a>
-										</h2>
-										<p>WLUW is awesome</p>
-									</div>
-												</div>
-							</div><!-- .slide-item -->
-
-
-							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 6; opacity: 0; width: 478px; height: 270px;">
-
-								<div class="featured-media">
-									<a href="http://google.com" rel="bookmark"><img src="{{ MEDIA_URL }}/img/concert.png" class="media" alt="" title=""></a>
-
-									<div class="postteaser">
-										<h2 class="posttitle">
-											<a href="http://google.com" rel="bookmark" title="">Some Text</a>
-										</h2>
-										<p>Some more text</p>
-									</div>
-												</div>
-							</div><!-- .slide-item -->
-
-
-							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: block; z-index: 7; opacity: 1; width: 478px; height: 270px;">
-								<div class="featured-media">
-									<a href="" rel="bookmark"><img src="" class="media" alt="" title=""></a>
-
-									<div class="postteaser">
-										<h2 class="posttitle">
-											<a href="" rel="bookmark" title="">Some Text</a>
-										</h2>
-										<p>More information</p>
-									</div>
-												</div>
-							</div><!-- .slide-item -->
-
-
-							<div class="slide_item" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 6; opacity: 0; width: 478px; height: 270px;">
-								<div class="featured-media">
-									<a href="" rel="bookmark"><img src="{{ MEDIA_URL }}/img/wluw.gif" class="media" alt="" title=""></a>
-
-									<div class="postteaser">
-										<h2 class="posttitle">
-											<a href="http://google.com">Loyola has great radio</a>
-										</h2>
-										<p>Some text/p>
-									</div>
-								</div>
-							</div><!-- .slide-item -->
+							{%endfor%}
 
 								</div><!-- .fea-slides -->
 
 						<div id="fea-nav">
 							<ul id="featured-nav">
-							<li class="">
-									<a href="#">
-										<img src="{{ MEDIA_URL }}/img/wluw.gif" class="fea_thumb" alt="" title=""></a>
-									</li>
-												<li class="">
-									<a href="#">
-										<img src="{{ MEDIA_URL }}/img/wluw.gif" class="fea_thumb" alt="Some alt text" title="SOme title">				</a>
-									</li>
-												<li class="">
-									<a href="#">
-										<img src="{{ MEDIA_URL }}/img/wluw.gif" class="fea_thumb" alt="New Wellness Center slated for Baumhart Hall" title="New Wellness Center slated for Baumhart Hall">				</a>
-									</li>
-												<li class="activeSlide">
-									<a href="#">
-										<img src="i{{ MEDIA_URL }}/img/wluw.gif" class="fea_thumb" alt="" title="Some title">				</a>
-									</li>
-												<li class="last">
-									<a href="#">
-										<img src="{{ MEDIA_URL }}/img/wluw.gif" class="fea_thumb" alt="" title="Some title"></a>
-									</li>
+								{% for post in featured_content %}
+								<li class="">
+								<a href="#">
+									<img src="{{post.thumbnail.url}}" class="fea_thumb" alt="" title=""></a>
+								</li>
+								{%endfor%}
 										</ul>
 							<div class="clear"></div>
 						</div><!-- /nav -->	
@@ -178,7 +105,11 @@
 		</div>
 		<div class="span3">
 			<div class="sidebar-donate">
-				<a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900"><img src="{{ MEDIA_URL }}/img/donateblack.gif" width="154" height="157" alt="Donateblack"></a>
+				<a href="https://secure2.convio.net/luc/site/Donation2?1900.donation=form1&idb=686504639&df_id=1900"><img src="{{ MEDIA_URL }}/img/donateblack.gif" width="154" height="400" alt="Donateblack"></a>
+			</div>
+			<div class="sidebar-soundcloud">
+				<iframe width="220" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F109590448"></iframe>
+			
 			</div>
 			<img src="{{ MEDIA_URL }}/img/sidebar-ad.png" width="220" height="353" alt="Sidebar Ad">
 		</div>
