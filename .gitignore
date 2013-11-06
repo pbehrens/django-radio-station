@@ -7,6 +7,4 @@ venv
 .Python
 wluwdev.tmproj
 .DS_Store
-wluw/settings.py
-
 

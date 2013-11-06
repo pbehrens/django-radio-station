@@ -48,7 +48,8 @@ MEDIA_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
+#STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 # STATIC_URL = '/admin_media/'
 STATIC_URL = '/static/'
 
@@ -59,7 +60,7 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = (
-	"/Users/thebeagle/dev/django/django-radio-station/wluw/static_files/",
+	os.path.join(os.path.dirname(__file__), 'static_files'),
 )
 
 ADMIN_MEDIA_PREFIX = '/static/grappelli/'
@@ -84,7 +85,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-	'grappelli',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -109,7 +110,7 @@ INSTALLED_APPS = (
     #'djcelery',
 #    'gunicorn',
 #	'filebrowser',
-#	'tinymce',
+#    'tinymce',
 
 )
 
@@ -146,8 +147,8 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_FILEBROWSER = True
 
 #filebrowser
-
-FILEBROWSER_MEDIA_ROOT = '/Volumes/files/thebeagle/dev/django/django-radio-station/wluw/media'
+FILEBROWSER_MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
+#FILEBROWSER_MEDIA_ROOT = '/Volumes/files/thebeagle/dev/django/django-radio-station/wluw/media'
 FILEBROWSER_MEDIA_URL = '/media'
 FILEBROWSER_DIRECTORY = 'upload/'
 
