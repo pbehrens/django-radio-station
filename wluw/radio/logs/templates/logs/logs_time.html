@@ -29,7 +29,7 @@
 	                    		<ul class="archive-list"><br>
 	                        		{% for nav_time in time_range %}
 	                            	<li {% if at_datetime == nav_time %}class="active time-period" {% else %} class="time-period" {% endif %}>
-	                                	{% url logs-time nav_date.year nav_date|date:"b" nav_date.day nav_time.hour as nav_url %}
+	                                	{% url logs_time nav_date.year nav_date|date:"b" nav_date.day nav_time.hour as nav_url %}
 	                                	<a href="{{ nav_url }}" title="{{ nav_time|date:"g:ia" }}"><i class="icon-music"></i>{{ nav_time|date:"g:ia" }}</a>
 	                            	</li>
 						            <li class="divider"></li>
@@ -37,7 +37,7 @@
 	                    		</ul>
 	                		</li>
 	            			{% else %}
-	                		{% url logs-time nav_date.year nav_date|date:"b" nav_date.day 0 as nav_url %}
+	                		{% url logs_time nav_date.year nav_date|date:"b" nav_date.day 0 as nav_url %}
 				            
 							<li>
 	                   			<a href="{{ nav_url }}" title="{{ nav_date|date:"l jS" }}">{% ifequal nav_date.date current_datetime.date %}Today{% else %}{{ nav_date|date:"l jS" }}{% endifequal %}</a>
@@ -57,9 +57,9 @@
 
 <div class="span7">
     <ul class="navigation">
-        <li class="prev"><a href="{% url logs-time prev.year prev|date:"b" prev.day prev.hour %}">3 hours earlier</a></li>
+        <li class="prev"><a href="{% url logs_time prev.year prev|date:"b" prev.day prev.hour %}">3 hours earlier</a></li>
         {% if next %}
-        <li class="next"><a href="{% url logs-time next.year next|date:"b" next.day next.hour %}">3 hours later</a></li>
+        <li class="next"><a href="{% url logs_time next.year next|date:"b" next.day next.hour %}">3 hours later</a></li>
         {% endif %}
     </ul>
     <div class="object-list-tabular">

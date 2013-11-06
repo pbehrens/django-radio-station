@@ -38,7 +38,7 @@ def index(request):
         'logs':latest_logs,
 		'posts':posts,
     }
-	return render_to_response("index.html", dict(posts=posts), context_instance=RequestContext(request))
+	return render_to_response("index.html", ctxt, context_instance=RequestContext(request))
  
 
 

@@ -260,5 +260,4 @@ small   { font-size:0.8em; }
 
 #home td .log-time  { text-shadow:none; opacity:0.0; position:absolute; background:#222; background:rgba(0,0,0,0.2); border-radius:6px; color:white; -webkit-transition:opacity 0.2s ease-in; }
 #home td:hover .log-time { opacity:1.0; } 
-#home tr:hover .log-time { opacity:1.0; } 
-
+#home tr:hover .log-time { opacity:1.0; }

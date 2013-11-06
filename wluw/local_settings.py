@@ -17,7 +17,7 @@ TEMPLATE_DEBUG=DEBUG
 
 CELERY_DEFAULT_EXCHANGE = "tasks"
 CELERY_RESULT_BACKEND = 'database'
-CELERY_RESULT_DBURI = 'wluw://postgres@localhost/wluw'
+CELERY_RESULT_DBURI = 'thebeagle://postgres@localhost/wluw'
 
 CELERY_IMPORTS = ('wluw.radio.library.tasks',)
 

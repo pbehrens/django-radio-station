@@ -474,7 +474,7 @@ top: -3px;
 }
 
 #blog-list .post {
-			position: relative; margin: 0 0 60px 0; padding: 0 0 66px 0; overflow: hidden;
+			position: relative; margin: 0 0 40px 0; padding: 0 0 26px 0; overflow: hidden;
 			background: url(/media/img/underline.png) bottom repeat-x;
 		}
 #blog-list .post h2 {
@@ -552,3 +552,9 @@ top: -3px;
 		padding: 14px 46px 0 0;
 		background-position: 0 -47px;
 	}
+
+.fb-comments{
+    padding-top: 20px;
+}
+
+
