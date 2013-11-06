@@ -51,19 +51,19 @@ MEDIA_URL = '/media/'
 #STATIC_ROOT = '/Users/thebeagle/dev/django/django-radio-station/wluw/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static')
 # STATIC_URL = '/admin_media/'
-STATIC_URL = '/static/'
+STATIC_URL = '/static/grappelli/'
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#STATICFILES_FINDERS = (
+#    'django.contrib.staticfiles.finders.FileSystemFinder',
+#    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-)
+#)
 
 STATICFILES_DIRS = (
-	os.path.join(os.path.dirname(__file__), 'static_files'),
+#	'/static/grapelli/',
 )
 
-ADMIN_MEDIA_PREFIX = '/static/grappelli/'
+#ADMIN_MEDIA_PREFIX = '/static/grappelli/'
 
 # Don't share this with anybody.
 SECRET_KEY = 'y3cpni&%g-v-)qge&^dj@9u*fw_ety%4duxgrt#w$5o#b0@_+4'
@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.markup',
-	'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'south',
     'radio.frontend',
     'radio.events',
@@ -98,14 +98,14 @@ INSTALLED_APPS = (
     'radio.logs',
     'radio.station',
     'radio.staff',
-	'radio.content',
+    'radio.content',
     'gravatar',
     'djcelery',
     'gunicorn',
     'sorl.thumbnail',
 
 	# 'filebrowser',
-	# 'tinymce',
+     'tinymce',
 
     #'djcelery',
 #    'gunicorn',
